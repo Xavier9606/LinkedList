@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 #include "List.h"
-
+#include <chrono>
 
 using namespace std;
 
@@ -28,31 +28,57 @@ int clear(); - очистити ліст
 
 */
 
+
+class twofields {
+public:
+    explicit twofields(int a) : a(a) {}
+
+    twofields(twofields&& obj)= default;
+
+//    twofields(twofields&& obj) {
+//        cout << "move twofields" << endl;
+//        a = obj.a;
+//        b = std::move(obj.b);
+//    };
+
+    twofields& operator=(twofields &&obj) = default;
+
+    twofields(twofields const &obj) = delete;
+
+    twofields& operator=(twofields const &obj) = delete;
+
+    void setA(int aa) { a = aa; }
+
+    int getA() { return a; }
+
+    string getB() { return b; }
+
+private:
+    int a;
+    string b;
+};
+
+
+
 int main() {
-//lvalue
-//rvalue
-
-    List<string> myList;
 
 
-    myList.add("Nulevoi");
+//    List<twofields> myList;
+//    for (int i = 0; i < 10; i++) {
+//        myList.add({i});
+//    }
+//
+//    for (int i = 0; i < myList.size(); i++) {
+//        cout << myList[i].getA() << endl;
+//    }
+//
+//    cout << "---------------------" << endl;
 
 
-    string value1 = "Odin";
-    myList.add(value1);
-
-
-   string value = "Dva";
-    myList.add(value);
-
-
-    myList.add("Tri");
-
-    for (int i = 0; i < myList.size(); i++) {
-        cout << myList[i] << endl;
+        List<int> myList;
+    for (int i = 0; i < 10; i++) {
+        myList.add(i);
     }
-
-    cout << "------------------------------------" << endl;
 
 
     for (int i = 0; i < myList.size(); i++) {
@@ -60,25 +86,16 @@ int main() {
     }
 
 
-
-    cout << "Size: " << myList.size() << endl;
-
-
-
-    cout << "Contains: " << myList.contains("Nulevoi") << endl;
-
-    cout << myList[0] << endl;
-    myList.removeID(0);
-    cout << myList[0] << endl;
-    cout << "Contains: " << myList.contains("Nulevoi") << endl;
-    cout<< myList.clear()<<endl;
-
-    cout << "Size: " << myList.size() << endl;
-    cout << "Empty: " << myList.isEmpty() << endl;
+//    myList.sort([](auto &first, auto &second) {
+//            return first.getA() < second.getA();
+//    });
 
 
+    cout << "---------------------" << endl;
 
 
+//    cout << "Size: " << myList.size() << endl;
+//    cout << "Empty: " << myList.isEmpty() << endl;
 
     cin.ignore();
     return 0;
