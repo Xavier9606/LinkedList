@@ -42,25 +42,25 @@ public:
 
     T &operator[](int index) { return get(index); };
 
-    void add(T &value); // -додати елемент в кінець
+    void add(T &value); // -РґРѕРґР°С‚Рё РµР»РµРјРµРЅС‚ РІ РєС–РЅРµС†СЊ
 
-    void add(T &&value); // -додати елемент в кінець
+    void add(T &&value); // -РґРѕРґР°С‚Рё РµР»РµРјРµРЅС‚ РІ РєС–РЅРµС†СЊ
 
     T gethead() { return head->getValue(); };
 
     T gettail() { return tail->getValue(); };
 
-    T &get(int index); // -отримати по індексу
+    T &get(int index); // -РѕС‚СЂРёРјР°С‚Рё РїРѕ С–РЅРґРµРєСЃСѓ
 
-    bool contains(T obj); // -чи є obj в лісті ?
+    bool contains(T obj); // -С‡Рё С” obj РІ Р»С–СЃС‚С– ?
 
-    T removeID(int index); // -видалити по індексу
+    T removeID(int index); // -РІРёРґР°Р»РёС‚Рё РїРѕ С–РЅРґРµРєСЃСѓ
 
-    bool isEmpty(); // -перевірка, чи він пустий
+    bool isEmpty(); // -РїРµСЂРµРІС–СЂРєР°, С‡Рё РІС–РЅ РїСѓСЃС‚РёР№
 
-    int size(); // -отримати скільки елементів
+    int size(); // -РѕС‚СЂРёРјР°С‚Рё СЃРєС–Р»СЊРєРё РµР»РµРјРµРЅС‚С–РІ
 
-    int clear();// -очистити ліст
+    int clear();// -РѕС‡РёСЃС‚РёС‚Рё Р»С–СЃС‚
 
     void sort(std::function<bool(T &, T &)> fn);
 
@@ -77,7 +77,7 @@ private:
 };
 
 template<typename T>
-void List<T>::add(T &value)  // -додати елемент в кінець
+void List<T>::add(T &value)  // -РґРѕРґР°С‚Рё РµР»РµРјРµРЅС‚ РІ РєС–РЅРµС†СЊ
 {
     if (length == 0) {
         tail = head = new MyNode<T>(value);
@@ -91,7 +91,7 @@ void List<T>::add(T &value)  // -додати елемент в кінець
 }
 
 template<typename T>
-void List<T>::add(T &&value)  // -додати елемент в кінець
+void List<T>::add(T &&value)  // -РґРѕРґР°С‚Рё РµР»РµРјРµРЅС‚ РІ РєС–РЅРµС†СЊ
 {
     if (length == 0) {
         tail = head = new MyNode<T>(value);
@@ -105,7 +105,7 @@ void List<T>::add(T &&value)  // -додати елемент в кінець
 }
 
 template<typename T>
-T &List<T>::get(int index) // -отримати по індексу
+T &List<T>::get(int index) // -РѕС‚СЂРёРјР°С‚Рё РїРѕ С–РЅРґРµРєСЃСѓ
 {
 
 
@@ -122,7 +122,7 @@ T &List<T>::get(int index) // -отримати по індексу
 }
 
 template<typename T>
-MyNode<T> *List<T>::getNode(int index) // -отримати по індексу
+MyNode<T> *List<T>::getNode(int index) // -РѕС‚СЂРёРјР°С‚Рё РїРѕ С–РЅРґРµРєСЃСѓ
 {
 
     MyNode<T> *curr = head;
@@ -138,7 +138,7 @@ MyNode<T> *List<T>::getNode(int index) // -отримати по індексу
 
 
 template<typename T>
-bool List<T>::contains(T obj) // -чи є MyNode в лісті ?
+bool List<T>::contains(T obj) // -С‡Рё С” MyNode РІ Р»С–СЃС‚С– ?
 {
     MyNode<T> *curr = head;
     for (int i = 0; (i < length); i++) {
@@ -153,7 +153,7 @@ bool List<T>::contains(T obj) // -чи є MyNode в лісті ?
 
 
 template<typename T>
-T List<T>::removeID(int index) // -видалити по індексу
+T List<T>::removeID(int index) // -РІРёРґР°Р»РёС‚Рё РїРѕ С–РЅРґРµРєСЃСѓ
 {
     MyNode<T> *curr = head;
     MyNode<T> *next = nullptr;
@@ -187,20 +187,20 @@ T List<T>::removeID(int index) // -видалити по індексу
 }
 
 template<typename T>
-bool List<T>::isEmpty() // -перевірка, чи він пустий
+bool List<T>::isEmpty() // -РїРµСЂРµРІС–СЂРєР°, С‡Рё РІС–РЅ РїСѓСЃС‚РёР№
 {
     return length == 0;
 }
 
 template<typename T>
-int List<T>::size() // -отримати скільки елементів
+int List<T>::size() // -РѕС‚СЂРёРјР°С‚Рё СЃРєС–Р»СЊРєРё РµР»РµРјРµРЅС‚С–РІ
 {
     return length;
 }
 
 
 template<typename T>
-int List<T>::clear()// -очистити ліст
+int List<T>::clear()// -РѕС‡РёСЃС‚РёС‚Рё Р»С–СЃС‚
 {
     int objectsCount = length;
 
